@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+</head>
+<body>
+
+    <h2>Pesquisa</h2>
+
+    <form id="meuFormulario">
+        <label>
+            Sua Idade:
+            <input type="number" id="Idade" required>
+        </label>
+        <br><br>
+
+        <label>
+            Idade da sua mãe:
+            <input type="number" id="Mae" required>
+        </label>
+        <br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensagem"></p>
+
+    <script>
+        const form = document.getElementById("meuFormulario");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const valorA = Number(document.getElementById("Idade").value);
+            const valorB = Number(document.getElementById("Mae").value);
+            const mensagem = document.getElementById("mensagem");
+
+            if (valorB > valorA) {
+                mensagem.textContent = "Obrigado pela resposta!";
+                mensagem.style.color = "green";
+            } else {
+                mensagem.textContent = "Dados incorretos.";
+                mensagem.style.color = "red";
+            }
+        });
+    </script>
+
+</body>
+</html>
